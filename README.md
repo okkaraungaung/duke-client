@@ -8,25 +8,36 @@ This is a sample JavaScript web application that you will use to implement REST 
 
 To set up a server in Python, you can use [Flask](https://flask.palletsprojects.com/en/2.3.x/). Flask is a simple framework for making web apps with Python. Follow the [installation](https://flask.palletsprojects.com/en/2.3.x/installation/) and [quickstart](https://flask.palletsprojects.com/en/2.3.x/quickstart/) instructions until you can see "Hello World" in your browser.
 
+## Submoduling the Duke Client
+[Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) allow you to keep and use a Git repository as a subdirectory of your main Git repository. We will be submoduling this repository so you can use the Duke Client in your app.
+
+Run the following command to submodule this repo under an `assets` folder.
+
+```bash
+git submodule add https://github.com/it5503-2310/duke-client.git assets/
+```
+
+>Now that you added this repo as a submodule in your repo, you can open this `README.md` in Visual Studio Code and view it as a readable document there to refer when building the APIs!
+
 ## Hosting the Duke Client
 
-Together with this package, you will have a `client` folder. This folder contains the codes that power the Duke Client web app. Don't worry about what's inside. Just place it somewhere reasonable in your project directory.
+Inside the `assets` folder, you will have a `client` folder. This folder contains the codes that power the Duke Client web app. Don't worry about what's inside.
 
 What we need to do is to serve these files with Flask so that you can access it in your browser. Accordingly modify your current Flask set-up with these lines.
 
 ```python
 from flask import Flask, send_from_directory
 
-app = Flask(__name__, static_url_path='', static_folder='client')
+app = Flask(__name__, static_url_path='', static_folder='assets/client')
 
 @app.get('/')
 def serve_client():
-    return send_from_directory('client', 'index.html')
+    return send_from_directory('assets/client', 'index.html')
 ```
 
-This set-up assumes that the `client` folder is in the same directory as the Python file that contains these lines. If you have a different folder path, modify the `static_folder` and `send_from_directory` arguments accordingly.
+This set-up assumes that the `assets` folder is in the same directory as the Python file that contains these lines. If you have a different folder path, modify the `static_folder` and `send_from_directory` arguments accordingly.
 
-You should be able to convince yourself that these lines will serve everything inside the `client` folder, and respond to GET `/` with the `index.html` inside the `client` folder.
+You should be able to convince yourself that these lines will serve everything inside the `assets/client` folder, and respond to GET `/` with the `index.html` inside the `assets/client` folder.
 
 ## Accessing the Duke Client
 
