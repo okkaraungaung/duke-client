@@ -20,6 +20,10 @@ git submodule add https://github.com/it5503-2310/duke-client.git client/
 
 > Now that you added this repo as a submodule in your repo, you can open this `README.md` in Visual Studio Code and view it as a readable document there to refer when building the APIs!
 
+## Grab the Flask template
+
+Inside this repo, there is a `template.py` that is a skeleton Flask app with the endpoints that you are going to build. Copy this file into your project, rename, and modify it accordingly.
+
 ## Hosting the Duke Client
 
 This repo contains the codes that power the Duke Client web app. Don't worry about what's inside.
