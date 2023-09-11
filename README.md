@@ -9,19 +9,20 @@ This is a sample JavaScript web application that you will use to implement REST 
 To set up a server in Python, you can use [Flask](https://flask.palletsprojects.com/en/2.3.x/). Flask is a simple framework for making web apps with Python. Follow the [installation](https://flask.palletsprojects.com/en/2.3.x/installation/) and [quickstart](https://flask.palletsprojects.com/en/2.3.x/quickstart/) instructions until you can see "Hello World" in your browser.
 
 ## Submoduling the Duke Client
+
 [Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) allow you to keep and use a Git repository as a subdirectory of your main Git repository. We will be submoduling this repository so you can use the Duke Client in your app.
 
-Run the following command to submodule this repo under an `assets` folder.
+In the root directory of your project, create an `assets` folder. Inside it, run the following command to submodule this repo under a `client` folder.
 
 ```bash
-git submodule add https://github.com/it5503-2310/duke-client.git assets/
+git submodule add https://github.com/it5503-2310/duke-client.git client/
 ```
 
->Now that you added this repo as a submodule in your repo, you can open this `README.md` in Visual Studio Code and view it as a readable document there to refer when building the APIs!
+> Now that you added this repo as a submodule in your repo, you can open this `README.md` in Visual Studio Code and view it as a readable document there to refer when building the APIs!
 
 ## Hosting the Duke Client
 
-Inside the `assets` folder, you will have a `client` folder. This folder contains the codes that power the Duke Client web app. Don't worry about what's inside.
+This repo contains the codes that power the Duke Client web app. Don't worry about what's inside.
 
 What we need to do is to serve these files with Flask so that you can access it in your browser. Accordingly modify your current Flask set-up with these lines.
 
